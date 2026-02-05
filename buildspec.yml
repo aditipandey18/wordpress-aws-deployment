@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - sudo apt-get update -y
+      - sudo apt-get install -y php mysql-client
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Packaging WordPress files...
+      - zip -r wordpress.zip .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - wordpress.zip
